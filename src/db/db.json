@@ -1,5 +1,11 @@
 {
     "db": {
-        "userInfo": "Data from the JSON"
+        "userInfo": {
+            "userId": "123445566",
+            "name": "Jorginho Alagoense",
+            "email": "jorge@gmail.com",
+            "password": "123",
+            "username": "jorge"
+        }
     }
 }
