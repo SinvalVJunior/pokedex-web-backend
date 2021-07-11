@@ -2,10 +2,10 @@
     "db": {
         "userInfo": {
             "userId": "123445566",
-            "name": "Jorginho Alagoense",
-            "email": "jorge@gmail.com",
+            "name": "Matias de Sá",
+            "email": "matias@gmail.com",
             "password": "123",
-            "username": "jorge"
+            "username": "matias"
         }
     }
 }
