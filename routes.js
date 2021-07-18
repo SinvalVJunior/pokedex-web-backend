@@ -5,6 +5,8 @@ const LoginController = require('./src/controllers/login-controller');
 const routes = new Router();
 
 routes.get("/users", UserController.getUserInfo);
+routes.post("/users", UserController.saveUser);
+
 routes.post("/login", LoginController.login);
 
 
