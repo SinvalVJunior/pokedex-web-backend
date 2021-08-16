@@ -1,5 +1,4 @@
-const PokeAPIClient = require('../clients/poke-api');
-
+const PokeAPIClient = require('../clients/poke-api/poke-api');
 class PokeAPIService {
 
     constructor() {

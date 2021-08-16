@@ -7,8 +7,16 @@ class MongoRepository {
       return await User.create(user);
    }
 
+   async updateUserInventory(userId, newInventory) {
+      return await User.findByIdAndUpdate(userId, { inventory: newInventory }, { new: true } );
+   }
+
    async findUserByEmail(email) {
       return await User.findOne({email});
+   }
+
+   async findUserById(id) {
+      return await User.findById(id);
    }
 }
 
