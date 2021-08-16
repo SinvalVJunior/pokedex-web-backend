@@ -20,7 +20,7 @@ class UserService {
     }
 
     async getUserById(userId) {
-        return await this.mongoRepository.finUserById(userId);
+        return await this.mongoRepository.findUserById(userId);
     }
 
     async addPokemonToInventory(userId, inventoryElement) {

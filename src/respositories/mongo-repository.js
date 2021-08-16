@@ -15,7 +15,7 @@ class MongoRepository {
       return await User.findOne({email});
    }
 
-   async finUserById(id) {
+   async findUserById(id) {
       return await User.findById(id);
    }
 }
