@@ -3,6 +3,9 @@ class PokemonFactory {
     buildPokemon(pokemon) {
 
         return { 
+
+                id:             this.#extractPokemonId(pokemon),
+
                 name:           this.#extractPokemonName(pokemon),
 
                 gif:            this.#extractPokemonGIF(pokemon),
@@ -16,6 +19,10 @@ class PokemonFactory {
                 defense:        this.#extractPokemonStatValue(pokemon, "defense"),
                 hp:             this.#extractPokemonStatValue(pokemon, "hp"),
             };
+    }
+
+    #extractPokemonId(pokemon) {
+        return pokemon.id
     }
 
     #extractPokemonName(pokemon) {

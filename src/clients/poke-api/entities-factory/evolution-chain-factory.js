@@ -9,7 +9,7 @@ class EvolutionChainFactory {
 
     #extractPokemonEvolution(pokemonName, evolutionChain) {
         let pokemonNode = evolutionChain.chain;
-
+        
         while(pokemonNode.species.name !== pokemonName && this.#isNotEndOfEvolutionChain(pokemonNode)) {
             pokemonNode = pokemonNode["evolves_to"][0];
         }

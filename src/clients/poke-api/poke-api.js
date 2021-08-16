@@ -75,7 +75,7 @@ class PokeAPIClient {
     }
 
     #getRandomIntNumber() {
-        return parseInt(Math.random() * 500);
+        return parseInt(Math.random() * 600);
     }
 
     async #getSelectedPokemons(pokemonsSelectedIds) {
