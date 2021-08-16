@@ -3,30 +3,40 @@ class PokemonSpecieFactory {
     buildPokemonSpecie(pokemonSpecie) {
 
         return {
-            habitat:        this.#extractPokemonHabitat(pokemonSpecie),
 
-            isLegendary:    this.#extractPokemonLegendary(pokemonSpecie),
+            name :              this.#extractPokemonName(pokemonSpecie),
 
-            isMythical:     this.#extractPokemonMythical(pokemonSpecie),
+            habitat:            this.#extractPokemonHabitat(pokemonSpecie),
 
-            baseHappiness:  this.#extractPokemonBaseHappiness(pokemonSpecie),
+            isLegendary:        this.#extractPokemonLegendary(pokemonSpecie),
 
-            shape:          this.#extractPokemonShape(pokemonSpecie),
+            isMythical:         this.#extractPokemonMythical(pokemonSpecie),
 
-            color:          this.#extractPokemonColor(pokemonSpecie),
+            baseHappiness:      this.#extractPokemonBaseHappiness(pokemonSpecie),
 
-            curiosity:      this.#extractPokemonCuriosity(pokemonSpecie),
+            shape:              this.#extractPokemonShape(pokemonSpecie),
 
-            evolvesFrom:    this.#extractPokemonEvolvesFrom(pokemonSpecie),
+            color:              this.#extractPokemonColor(pokemonSpecie),
 
-            evolutionChainUrl: this.#extractEvolutionChainUrl(pokemonSpecie)
+            curiosity:          this.#extractPokemonCuriosity(pokemonSpecie),
+
+            evolvesFrom:        this.#extractPokemonEvolvesFrom(pokemonSpecie),
+
+            evolutionChainUrl:  this.#extractEvolutionChainUrl(pokemonSpecie)
 
         };
     }
 
+    #extractPokemonName(pokemonSpecie) {
+        return pokemonSpecie.name;
+    }
+
 
     #extractPokemonHabitat(pokemonSpecie) {
-        return pokemonSpecie.habitat.name;
+        if(pokemonSpecie.habitat)
+            return pokemonSpecie.habitat.name;
+
+        return "Unkown";
     }
     
     #extractPokemonBaseHappiness(pokemonSpecie) {
@@ -50,7 +60,14 @@ class PokemonSpecieFactory {
     }
 
     #extractPokemonCuriosity(pokemonSpecie) {
-        return pokemonSpecie["flavor_text_entries"][0]["flavor_text"];
+        const curiosities = pokemonSpecie["flavor_text_entries"];
+
+        for (const curiosity of curiosities) {
+            if(curiosity?.language?.name === "en") {
+                return curiosity["flavor_text"];
+            }
+        }
+        return curiosities[0]["flavor_text"];
     }
 
     #extractPokemonEvolvesFrom(pokemonSpecie) {
