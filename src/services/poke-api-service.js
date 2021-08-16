@@ -1,9 +1,10 @@
-const PokeAPIClient = require('../clients/poke-api');
-
+const PokeAPIClient = require('../clients/poke-api/poke-api');
+const UserService = require('./user-service');
 class PokeAPIService {
 
     constructor() {
         this.PokeAPI = new PokeAPIClient();
+        this.userService = new UserService();
     }
 
     async getPokemons(numberOfPokemons) {

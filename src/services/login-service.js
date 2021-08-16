@@ -20,7 +20,7 @@ class LoginService {
     if(password === user.password){
       const token = await jwt.sign({ id: email }, this.secret, { expiresIn: '1h' });
 
-      return  { token, user: { email: user.email, name: user.name } };
+      return  { token, user: { email: user.email, name: user.name, id: user.id } };
     } else {
       throw new Error('Invalid password');
     }

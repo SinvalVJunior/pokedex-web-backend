@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
     name: { 
         type: String,
         required: [true, 'A user must have a name']
+    },
+    inventory: {
+        type: Array,
+        required: [true, 'A user must have a inventory']
     }
 });
 

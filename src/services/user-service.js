@@ -19,5 +19,16 @@ class UserService {
         return await this.mongoRepository.saveUser(user);
     }
 
+    async getUserById(userId) {
+        return await this.mongoRepository.finUserById(userId);
+    }
+
+    async addPokemonToInventory(userId, inventoryElement) {
+        const user = await this.getUserById(userId);
+        const newInventory = [ ...user.inventory, inventoryElement ];
+        
+        return await this.mongoRepository.updateUserInventory(userId, newInventory);
+    }
+
 }
 module.exports=UserService;
