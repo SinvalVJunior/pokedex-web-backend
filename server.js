@@ -17,7 +17,7 @@ mongoose.connect(DB, {
 }).then(() => { console.log('DB connected successfully!') });
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -25,5 +25,5 @@ app.use(express.json());
 app.use('/api', routes);
 
 app.listen(port, () => {
-  console.log(`Application listening at http://localhost:${port}`);
+  console.log(`Application listening at port: ${port}`);
 });
