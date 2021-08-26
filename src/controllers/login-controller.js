@@ -11,6 +11,17 @@ class LoginController {
             return res.status(400).send({error: error.message});
         }
     }
+
+    async loginFacebook(req, res) {
+        try {
+            const { email, name, picture } = req.body;
+            const authService = new LoginService();
+            const authenticateResponse = await authService.authenticateFacebook(email, name, picture);
+            return res.status(200).send(authenticateResponse);
+        } catch(error) {
+            return res.status(400).send({error: error.message});
+        }
+    }
 }
 
 module.exports = new LoginController();

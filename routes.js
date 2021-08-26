@@ -10,6 +10,7 @@ routes.get("/users", UserController.getUserInfo);
 routes.post("/users", UserController.saveUser);
 
 routes.post("/login", LoginController.login);
+routes.post("/login/facebook", LoginController.loginFacebook);
 
 routes.get("/pokemon", PokemonAPIController.getPokemons);
 
