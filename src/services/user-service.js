@@ -19,6 +19,21 @@ class UserService {
         return await this.mongoRepository.saveUser(user);
     }
 
+    async editUser(userId, name){
+        const user = await this.getUserById(userId);
+        const newUserInfo = {
+            email: user.email,
+            password: user.password,
+            name: user.name,
+        };
+
+        if(name){
+            newUserInfo.name = name;
+        }
+
+        return await this.mongoRepository.updateUser(userId, newUserInfo)
+    }
+
     async getUserById(userId) {
         return await this.mongoRepository.findUserById(userId);
     }
