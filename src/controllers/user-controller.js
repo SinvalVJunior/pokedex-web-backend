@@ -21,6 +21,19 @@ class UserController {
             return res.status(400).send({ error: error.message });
         }
     }
+
+    async updateUser(req, res){
+        try{
+            const {userId, name } = req.body;
+            const service = new UserService();  
+
+            const userUpdated = await service.editUser(userId, name);
+
+            return res.status(200).send(userUpdated);
+        }catch(error){
+            return res.status(400).send({error: error.message});
+        }       
+    }
 }
 
 

@@ -8,6 +8,7 @@ const routes = new Router();
 
 routes.get("/users", UserController.getUserInfo);
 routes.post("/users", UserController.saveUser);
+routes.put("/users", UserController.updateUser);
 
 routes.post("/login", LoginController.login);
 routes.post("/login/facebook", LoginController.loginFacebook);
