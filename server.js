@@ -3,7 +3,7 @@ const cors = require('cors');
 const routes = require('./routes');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-
+const checkJwt = require('./src/middlewares/token-validator');
 dotenv.config({path: './config.env'});
 
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
