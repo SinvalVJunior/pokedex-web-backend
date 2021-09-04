@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const jwtSecret = require('../config');
 const dbRepository = require('../respositories/json-repository');
 const MongoRepository = require('../respositories/mongo-repository');
+const bcrypt = require('bcrypt');
 class LoginService {
 
   constructor () {
@@ -16,7 +17,7 @@ class LoginService {
     if(!user)
       throw new Error(`User with email ${email} not found.`);
     
-    if(password === user.password){
+    if(bcrypt.compare(password, user.password)){
 
       return await this.#signUser(user);  
     } else {
