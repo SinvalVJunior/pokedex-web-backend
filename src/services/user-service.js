@@ -1,5 +1,7 @@
 const dbRepository = require('../respositories/json-repository');
 const MongoRepository = require('../respositories/mongo-repository');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 class UserService {
     constructor() {
         this.dbRepository = new dbRepository();
@@ -11,11 +13,15 @@ class UserService {
     }
 
     async saveUser(email, password, name) {
+
+        const newPassword = await bcrypt.hash(password, saltRounds);
+
         const user = {
             email,
-            password,
+            password: newPassword,
             name
         }
+    
         return await this.mongoRepository.saveUser(user);
     }
 
