@@ -9,7 +9,7 @@ const InventoryController = require('./src/controllers/inventory-controller');
 const routes = new Router();
 
 routes.get("/users", checkJwt, UserController.getUserInfo);
-routes.post("/users", checkJwt, UserController.saveUser);
+routes.post("/users", UserController.saveUser);
 routes.put("/users", checkJwt, UserController.updateUser);
 
 routes.post("/login", LoginController.login);
